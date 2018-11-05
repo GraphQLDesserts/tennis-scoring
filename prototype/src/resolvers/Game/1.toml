@@ -1,0 +1,9 @@
+servingSide = "SIDE_A"
+
+[[pointsWon]]
+count = 2
+side = "SIDE_A"
+
+[[pointsWon]]
+count = 1
+side = "SIDE_B"

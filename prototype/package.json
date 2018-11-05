@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "graphpack",
+    "build": "graphpack build"
+  },
+  "devDependencies": {
+    "graphpack": "^1.0.2"
+  },
+  "dependencies": {
+    "toml": "^2.3.3"
+  }
+}

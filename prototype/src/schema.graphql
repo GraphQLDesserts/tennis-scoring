@@ -1,0 +1,50 @@
+type Query {
+  currentMatch: Match
+}
+
+enum Side {
+  SIDE_A
+  SIDE_B
+}
+
+type Match {
+  winner: Side
+  currentGame: Game
+  stats: [SideStats]
+}
+
+type Game {
+  servingSide: Side!
+  pointsWon: [GamePointsWon!]!
+}
+
+type GamePointsWon {
+  count: Int!
+  side: Side!
+}
+
+type SideStats {
+  side: Side
+  players: [PlayerStats]
+}
+
+type PlayerStats {
+  breakpoints: PlayerStatsBreakpoints
+  aces: PlayerStatsAces
+  doubleFaults: PlayerStatsDoubleFaults
+}
+
+type PlayerStatsBreakpoints {
+  totalCount: Int
+  wonCount: Int
+}
+
+type PlayerStatsAces {
+  count: Int
+}
+
+type PlayerStatsDoubleFaults {
+  count: Int
+}
+
+union MatchStats = PlayerStats
