@@ -1,0 +1,39 @@
+[Query]
+currentMatch = "1"
+
+
+[Match]
+
+  [Match.1]
+  currentGame = "1"
+  stats = ["1", "2"]
+
+
+[Game]
+
+  [Game.1]
+  servingSide = "SIDE_A"
+
+    [[Game.1.pointsWon]]
+    count = 2
+    side = "SIDE_A"
+
+    [[Game.1.pointsWon]]
+    count = 1
+    side = "SIDE_B"
+
+
+[SideStats]
+
+  [SideStats.1]
+  side = "SIDE_A"
+  players = [0]
+
+  [SideStats.2]
+  side = "SIDE_B"
+
+
+[[PlayerStats]]
+
+  [PlayerStats.aces]
+  count = 2
