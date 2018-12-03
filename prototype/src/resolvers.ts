@@ -2,6 +2,7 @@ import Toml from 'toml';
 import FS from 'fs';
 import Path from 'path';
 import { promisify } from 'util';
+import R from 'ramda'
 
 const readFile = promisify(FS.readFile);
 
@@ -35,21 +36,20 @@ function makeFieldResolver(field: string) {
       parent = await baseToml['Query']
     }
 
-    if (parent[field] == null) {
+    const value = parent[field]
+
+    if (value == null) {
       return null
     }
 
-    if (typeof parent[field] === 'string') {
-      return baseToml[info.returnType.name][parent[field]]
+    if (typeof value === 'string') {
+      return R.path(R.split('.', value), baseToml)
     }
-    else if (typeof parent[field] === 'number') {
-      return baseToml[info.returnType.name][parent[field]]
-    }
-    else if (Array.isArray(parent[field])) {
-      return parent[field].map(id => baseToml[info.returnType.ofType.name][id])
+    else if (Array.isArray(value)) {
+      return value.map(id => R.path(R.split('.', id), baseToml))
     }
     else {
-      return parent[field]
+      return value
     }
   }
 }

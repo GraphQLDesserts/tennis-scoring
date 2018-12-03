@@ -1,12 +1,12 @@
 [Query]
-currentMatch = "1"
+currentMatch = "Match.1"
 
 
 [Match]
 
   [Match.1]
-  currentGame = "1"
-  stats = ["1", "2"]
+  currentGame = "Game.1"
+  stats = ["SideStats.1", "SideStats.2"]
 
 
 [Game]
@@ -27,13 +27,14 @@ currentMatch = "1"
 
   [SideStats.1]
   side = "SIDE_A"
-  players = [0]
+  players = ["PlayerStats.1"]
 
   [SideStats.2]
   side = "SIDE_B"
 
 
-[[PlayerStats]]
+[PlayerStats]
 
-  [PlayerStats.aces]
+  [PlayerStats.1]
+  [PlayerStats.1.aces]
   count = 2
